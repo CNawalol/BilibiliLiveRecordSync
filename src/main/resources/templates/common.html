@@ -1,0 +1,46 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="source">
+    <link rel="stylesheet" type="text/css" href="mdui/css/mdui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</div>
+
+<div th:fragment="ui">
+    <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-appbar-with-toolbar mdui-drawer-body-left">
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme mdui-appbar-scroll-toolbar-hide">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="javascript:;" class="mdui-typo-headline">BLRS</a>
+                <a href="javascript:;" class="mdui-typo-title">Title</a>
+            </div>
+        </div>
+
+        <div class="mdui-drawer" id="left-drawer">
+            <li class="mdui-list-item mdui-ripple" th:classappend="${page == 'index'} ? 'mdui-list-item-active' : '' ">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <div class="mdui-list-item-content">首页</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple" th:classappend="${page == 'download'} ? 'mdui-list-item-active' : '' ">
+                <i class="mdui-list-item-icon mdui-icon material-icons">file_download</i>
+                <div class="mdui-list-item-content">下载列表</div>
+            </li>
+            <div class="mdui-divider"></div>
+            <li class="mdui-list-item mdui-ripple" th:classappend="${page == 'settings'} ? 'mdui-list-item-active' : '' ">
+                <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
+                <div class="mdui-list-item-content">设置</div>
+            </li>
+        </div>
+
+    </body>
+    <script src="mdui/js/mdui.min.js"></script>
+</div>
+
+<div th:fragment="room(imageUrl,roomName,downloadCount)">
+    <div id="roomContainer">
+        <img id="image" th:src="${imageUrl}">
+        <div id="roomInfo">
+            <h1 id="roomName" th:text="${roomName}"></h1>
+            <h3 style="margin-top: 2.8em" th:text="${downloadCount}"></h3>
+        </div>
+    </div>
+</div>
